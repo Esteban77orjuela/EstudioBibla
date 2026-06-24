@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Lora", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  --color-background: var(--bg-color);
+  --color-foreground: var(--fg-color);
+  --color-panel: var(--panel-bg);
+  --color-border: var(--panel-border);
+  --color-muted: var(--muted-bg);
+  --color-muted-foreground: var(--muted-fg);
+  --color-accent: var(--accent-color);
+  --color-hover: var(--hover-bg);
+  --color-accent-muted: var(--accent-muted);
+  --color-accent-foreground: var(--accent-fg);
+}
+
+@layer base {
+  :root, .theme-light, .theme-sepia {
+    --bg-color: #FDFCFB;
+    --fg-color: #2D2926;
+    --panel-bg: #FAF9F7;
+    --panel-border: #E5E1DA;
+    --muted-bg: #F5F2EE;
+    --muted-fg: #A09A90;
+    --accent-color: #C4A484;
+    --hover-bg: #F2EFE9;
+    --accent-muted: #F4ECD8;
+    --accent-fg: #9A7B4F;
+  }
+
+  .theme-dark {
+    --bg-color: #1A1A1A;
+    --fg-color: #E5E1DA;
+    --panel-bg: #222222;
+    --panel-border: #333333;
+    --muted-bg: #2A2A2A;
+    --muted-fg: #888888;
+    --accent-color: #C4A484;
+    --hover-bg: #333333;
+    --accent-muted: #332A1D;
+    --accent-fg: #C4A484;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    @apply antialiased transition-colors duration-300 font-serif;
+  }
+
+  .dropcap::first-letter {
+    float: left;
+    font-size: 4rem;
+    line-height: 3.5rem;
+    padding-top: 4px;
+    padding-right: 8px;
+    padding-left: 3px;
+    font-weight: 400;
+  }
+}
+
+/* Custom scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--panel-border);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-fg);
+}

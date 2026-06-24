@@ -1,0 +1,6 @@
+{
+  "name": "Biblioteca Bíblica",
+  "description": "Plataforma premium de estudio bíblico profundo con exégesis versículo por versículo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
