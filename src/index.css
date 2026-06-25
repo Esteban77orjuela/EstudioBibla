@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cinzel:wght@400;600&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Lora", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-display: "Cinzel", serif;
 
   --color-background: var(--bg-color);
   --color-foreground: var(--fg-color);
@@ -18,7 +19,10 @@
 }
 
 @layer base {
-  :root, .theme-light, .theme-sepia {
+
+  :root,
+  .theme-light,
+  .theme-sepia {
     --bg-color: #FDFCFB;
     --fg-color: #2D2926;
     --panel-bg: #FAF9F7;
@@ -52,16 +56,18 @@
 
   .dropcap::first-letter {
     float: left;
-    font-size: 4rem;
-    line-height: 3.5rem;
+    font-size: 4.2rem;
+    line-height: 3.6rem;
     padding-top: 4px;
-    padding-right: 8px;
+    padding-right: 10px;
     padding-left: 3px;
-    font-weight: 400;
+    font-weight: 600;
+    color: var(--accent-fg);
+    font-family: var(--font-display);
   }
 }
 
-/* Custom scrollbar for a cleaner look */
+/* ─── Custom scrollbar ─────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -78,4 +84,286 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--muted-fg);
+}
+
+/* ─── Reference links ──────────────────────────────────────────── */
+.ref-link {
+  color: var(--accent-fg);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.72em;
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+  vertical-align: super;
+  line-height: 0;
+  background: var(--accent-muted);
+  padding: 0.05em 0.3em;
+  border-radius: 3px;
+}
+
+.ref-link:hover {
+  color: #fff;
+  background: var(--accent-fg);
+}
+
+/* ─── Study body prose ─────────────────────────────────────────── */
+.study-prose {
+  text-align: left;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  word-break: break-word;
+}
+
+.study-prose p {
+  text-align: left;
+  hyphens: auto;
+  margin-bottom: 1rem;
+}
+
+.study-prose b,
+.study-prose strong {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.study-prose i,
+.study-prose em {
+  font-style: italic;
+}
+
+/* ─── Ornamental section divider ───────────────────────────────── */
+.section-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 3rem 0 2.5rem;
+  opacity: 0.4;
+}
+
+.section-ornament::before,
+.section-ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent-color));
+}
+
+.section-ornament::after {
+  background: linear-gradient(to left, transparent, var(--accent-color));
+}
+
+.section-ornament-symbol {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  letter-spacing: 0.25em;
+  padding: 0 0.25rem;
+}
+
+/* ─── Section header (number + title block) ─────────────────────── */
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-roman {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent-fg);
+  opacity: 0.7;
+  margin-bottom: 0.35rem;
+}
+
+.section-title-line {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-color);
+  opacity: 0.55;
+}
+
+.section-accent-bar {
+  display: block;
+  width: 2rem;
+  height: 2px;
+  background: var(--accent-color);
+  margin: 0.6rem auto 0;
+  border-radius: 1px;
+}
+
+/* ─── Verse number badge ────────────────────────────────────────── */
+.verse-number-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--accent-muted);
+  border: 1.5px solid var(--accent-color);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-fg);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+}
+
+/* ─── Verse card accent stripe ──────────────────────────────────── */
+.verse-card-stripe {
+  width: 3px;
+  background: linear-gradient(to bottom, var(--accent-color), transparent);
+  border-radius: 2px;
+  min-height: 2rem;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+/* ─── Inline label badges (replaces emoji+bold pattern) ─────────── */
+.study-label {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.68em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-fg);
+  border: 1px solid var(--accent-color);
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-right: 0.4em;
+  background: var(--accent-muted);
+  white-space: nowrap;
+}
+
+/* ─── Pastoral reflection styling ───────────────────────────────── */
+.pastoral-block {
+  position: relative;
+  padding: 2rem 2rem 2rem 2.5rem;
+  border-radius: 16px;
+  background: var(--muted-bg);
+}
+
+.pastoral-block::before {
+  content: '\201C';
+  position: absolute;
+  top: 0.5rem;
+  left: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: var(--accent-color);
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.pastoral-block p {
+  text-align: left !important;
+  font-style: italic;
+  opacity: 0.92;
+}
+
+/* ─── Hermeneutical application card ────────────────────────────── */
+.hermeneutics-item {
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--accent-color);
+  transition: border-color 0.2s;
+}
+
+.hermeneutics-item:hover {
+  border-left-color: var(--accent-fg);
+}
+
+/* ─── History of interpretation quote block ─────────────────────── */
+.interp-author {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--accent-fg);
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-bottom: 0.35rem;
+}
+
+.interp-block {
+  padding-left: 1rem;
+  border-left: 2px solid var(--panel-border);
+  transition: border-color 0.2s;
+}
+
+.interp-block:hover {
+  border-left-color: var(--accent-color);
+}
+
+/* ─── Cross-reference list inside prose ─────────────────────────── */
+.study-prose ul {
+  padding-left: 1.25rem;
+}
+
+.study-prose li {
+  text-align: left;
+  margin-bottom: 0.25rem;
+}
+
+/* ─── Bibliography ───────────────────────────────────────────────── */
+.biblio-item {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  line-height: 1.65;
+  padding: 0.5rem 0 0.5rem 0.85rem;
+  border-left: 2px solid var(--panel-border);
+  opacity: 0.82;
+  transition: opacity 0.2s, border-color 0.2s;
+}
+
+.biblio-item:hover {
+  opacity: 1;
+  border-left-color: var(--accent-color);
+}
+
+/* ─── Tab icon color tokens ──────────────────────────────────────── */
+.tab-icon-ai {
+  color: #7C6FF7;
+}
+
+.tab-icon-notes {
+  color: #4BAD7F;
+}
+
+.tab-icon-biblio {
+  color: var(--accent-fg);
+}
+
+/* ─── Crimson verse citation ──────────────────────────────────────── */
+.verse-citation {
+  color: #9B2226;
+}
+.theme-dark .verse-citation {
+  color: #E85D5D;
+}
+
+/* ─── Responsive mobile tweaks ────────────────────────────────────── */
+@media (max-width: 767px) {
+  .reader-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  #reader-container h1 {
+    font-size: 1.75rem !important;
+    line-height: 2.25rem !important;
+  }
+  #reader-container h2 {
+    font-size: 1.125rem !important;
+  }
 }

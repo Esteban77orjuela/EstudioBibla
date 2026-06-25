@@ -36,7 +36,15 @@ export interface FullStudy {
   literaryContext: string;
   verses: VerseStudy[];
   redemptiveLine: string;
+  originalMeaning?: string;
+  hermeneuticalApplication?: { title: string; text: string }[];
+  historyOfInterpretation?: {
+    fathers?: { author: string; text: string; sourceId?: string }[];
+    reformers?: { author: string; text: string; sourceId?: string }[];
+    contemporary?: { author: string; text: string; sourceId?: string }[];
+  };
   pastoralReflection: string;
   bibliography: string[];
   citations?: Citation[];
+  refMap?: Record<number, string>;
 }

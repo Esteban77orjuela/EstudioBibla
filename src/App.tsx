@@ -11,8 +11,10 @@ export default function App() {
   const [fontSize, setFontSize] = useState<FontSize>('lg');
   const [leftOpen, setLeftOpen] = useState(window.innerWidth > 768);
   const [rightOpen, setRightOpen] = useState(window.innerWidth > 1024);
+  const [currentBook, setCurrentBook] = useState('Mateo');
+  const [currentChapter, setCurrentChapter] = useState(1);
   
-  const study = studyRepo.getStudy('Efesios', 1)!;
+  const study = studyRepo.getStudy(currentBook, currentChapter);
 
   // Apply theme class to body
   useEffect(() => {
@@ -21,11 +23,29 @@ export default function App() {
 
   return (
     <div className={`flex h-screen w-full overflow-hidden transition-colors duration-300`}>
+      {/* Mobile backdrop for left sidebar */}
+      {leftOpen && (
+        <div 
+          className="fixed inset-0 bg-black/40 z-20 md:hidden backdrop-blur-sm transition-opacity"
+          onClick={() => setLeftOpen(false)}
+        />
+      )}
+
       {/* LEFT SIDEBAR */}
       <div 
-        className={`${leftOpen ? 'w-80 border-r' : 'w-0 border-r-0'} absolute md:relative z-30 h-full flex-shrink-0 transition-all duration-300 ease-in-out panel-bg border-border overflow-hidden shadow-2xl md:shadow-none`}
+        className={`${leftOpen ? 'w-80 border-r shadow-2xl' : 'w-0 border-r-0 shadow-none'} absolute md:relative z-30 h-full flex-shrink-0 transition-all duration-300 ease-in-out panel-bg border-border overflow-hidden md:shadow-none`}
       >
-        <LeftSidebar study={study} onClose={() => setLeftOpen(false)} />
+        <LeftSidebar
+          study={study}
+          currentBook={currentBook}
+          currentChapter={currentChapter}
+          onNavigate={(book, chapter) => {
+            setCurrentBook(book);
+            setCurrentChapter(chapter);
+            if (window.innerWidth < 768) setLeftOpen(false);
+          }}
+          onClose={() => setLeftOpen(false)}
+        />
       </div>
 
       {/* CENTRAL READER */}
@@ -88,13 +108,33 @@ export default function App() {
 
         {/* Reading Area */}
         <div className="flex-1 overflow-y-auto">
-          <Reader study={study} fontSize={fontSize} theme={theme} />
+          {study ? (
+            <Reader study={study} fontSize={fontSize} theme={theme} />
+          ) : (
+            <div className="flex items-center justify-center h-full opacity-50">
+              <div className="text-center">
+                <BookOpen className="w-16 h-16 mx-auto mb-4 opacity-30" />
+                <p className="font-sans text-sm">Selecciona un estudio disponible</p>
+                <p className="font-sans text-xs mt-2 opacity-60">
+                  {currentBook} {currentChapter} — Próximamente
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
+      {/* Mobile backdrop for right sidebar */}
+      {rightOpen && (
+        <div 
+          className="fixed inset-0 bg-black/40 z-20 md:hidden backdrop-blur-sm transition-opacity"
+          onClick={() => setRightOpen(false)}
+        />
+      )}
+
       {/* RIGHT SIDEBAR */}
       <div 
-        className={`${rightOpen ? 'w-80 border-l' : 'w-0 border-l-0'} absolute right-0 md:relative z-30 h-full flex-shrink-0 transition-all duration-300 ease-in-out panel-bg border-border overflow-hidden shadow-2xl md:shadow-none`}
+        className={`${rightOpen ? 'w-80 border-l shadow-2xl' : 'w-0 border-l-0 shadow-none'} absolute right-0 md:relative z-30 h-full flex-shrink-0 transition-all duration-300 ease-in-out panel-bg border-border overflow-hidden md:shadow-none`}
       >
         <RightSidebar study={study} onClose={() => setRightOpen(false)} />
       </div>

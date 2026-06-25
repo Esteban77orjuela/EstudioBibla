@@ -1,5 +1,6 @@
 import type { FullStudy, Source } from '../types';
 import { EPHESIANS_1_STUDY } from './studies/ephesians-1';
+import { MATTHEW_1_STUDY } from './studies/matthew-1';
 import { SOURCES } from './sources';
 
 class StudyRepository {
@@ -7,6 +8,7 @@ class StudyRepository {
 
   constructor() {
     this.registerStudy(EPHESIANS_1_STUDY);
+    this.registerStudy(MATTHEW_1_STUDY);
   }
 
   private registerStudy(study: FullStudy): void {
@@ -37,6 +39,7 @@ class StudyRepository {
 
   getAllBooks(): { name: string; chapters: number; testament: 'ot' | 'nt' }[] {
     return [
+      { name: 'Mateo', chapters: 28, testament: 'nt' },
       { name: 'Gálatas', chapters: 6, testament: 'nt' },
       { name: 'Efesios', chapters: 6, testament: 'nt' },
       { name: 'Filipenses', chapters: 4, testament: 'nt' },
