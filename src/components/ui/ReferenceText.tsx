@@ -1,5 +1,6 @@
 import { Fragment, useMemo } from 'react';
 import { studyRepo } from '../../data';
+import { highlightBibleRefs } from '../../utils/bibleRefs';
 
 interface ReferenceTextProps {
   text: string;
@@ -15,7 +16,9 @@ export default function ReferenceText({ text, refMap = {} }: ReferenceTextProps)
       /(?:\p{Emoji_Presentation}|\p{Extended_Pictographic}|\p{Emoji}\uFE0F)\s*<b>([^<]+)<\/b>/gu,
       '<span class="study-label">$1</span>'
     );
-    return <span dangerouslySetInnerHTML={{ __html: processedHtml }} />;
+    // Highlight all Bible references in crimson
+    const highlightedHtml = highlightBibleRefs(processedHtml);
+    return <span dangerouslySetInnerHTML={{ __html: highlightedHtml }} />;
   }
 
   const parts = useMemo(() => {

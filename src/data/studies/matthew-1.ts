@@ -106,7 +106,7 @@ export const MATTHEW_1_STUDY: FullStudy = {
     {
       verseNumber: 6,
       text: `<p class="mb-4"><b>Sección 2: De David al Exilio Babilónico</b></p>
-<p class="mb-4"><i class="verse-citation">"…y el rey David engendró a Salomón, de la que fue mujer de Urías. Salomón engendró a Roboam, Roboam a Abías, Abías a Asa… Josías engendró a Jeconías y a sus hermanos, en el tiempo de la deportación a Babilonia."</i> — Mateo 1:6b–11</p>
+<p class="mb-4"><i class="verse-citation">"…y el rey David engendró a Salomón de la que fue mujer de Urías. Salomón engendró a Roboam, Roboam a Abías, Abías a Asa… Josías engendró a Jeconías y a sus hermanos, en el tiempo de la deportación a Babilonia."</i> — Mateo 1:6b–11</p>
 <p class="mb-4"><b>El Exilio y la Sombra del Juicio</b></p>
 <p class="mb-4">Esta sección es sombría. Reyes que apostatan, naciones divididas, templo destruido. Y aun así, <b>Dios no suelta el hilo de su promesa</b>.</p>
 <p class="mb-4">${R(19)}Crisóstomo señala que Mateo ha dividido todas las generaciones en tres porciones, para indicar que <b>ni siquiera cuando su forma de gobierno fue cambiada se hicieron mejores</b>, sino que por igual bajo aristocracia, bajo un rey, y bajo una oligarquía, estuvieron en los mismos caminos malvados.${R(19)}</p>
