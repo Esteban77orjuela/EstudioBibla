@@ -101,6 +101,24 @@ export default function Reader({ study, fontSize, theme }: ReaderProps) {
           </div>
         </div>
 
+        {/* ── Passage Study Title ─────────────────────────────────── */}
+        <div className="text-center my-20">
+          <SectionDivider />
+          <p className="font-display text-[0.55rem] tracking-[0.35em] uppercase opacity-40 mt-8 mb-4">
+            Estudio del Pasaje
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl tracking-wide text-accent">
+            {study.book} {study.chapter}:{study.verses[0]?.verseNumber || '1'}
+            {study.verses.length > 1 ? `–${study.verses[study.verses.length - 1]?.verseNumber}` : ''}
+          </h2>
+          <p className="font-serif italic text-sm md:text-base opacity-50 mt-4 max-w-lg mx-auto leading-relaxed">
+            {study.subtitle}
+          </p>
+          <div className="mt-10">
+            <SectionDivider />
+          </div>
+        </div>
+
         {/* ── Content Body ───────────────────────────────────────── */}
         <div className={`font-serif ${fontSizeMap[fontSize]} leading-[1.9]`}>
 

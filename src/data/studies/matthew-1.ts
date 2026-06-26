@@ -54,7 +54,7 @@ export const MATTHEW_1_STUDY: FullStudy = {
   chapter: 1,
   theologicalTitle: "El Libro del Origen: Cuando Dios Tejió la Historia",
   subtitle: "La Genealogía de Jesucristo como Declaración Teológica, Pacto Cumplido y Gracia Radical",
-  coverImage: "https://images.unsplash.com/photo-1603398971492-44aa4132ddbf?q=80&w=2070&auto=format&fit=crop",
+  coverImage: "/img/mateo-1-1-17.png",
   estimatedReadingTime: 45,
 
   contextualIntro: `<p class="mb-4"><b>A. Contexto Histórico</b></p>

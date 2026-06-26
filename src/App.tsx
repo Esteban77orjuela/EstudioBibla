@@ -26,7 +26,7 @@ export default function App() {
       {/* Mobile backdrop for left sidebar */}
       {leftOpen && (
         <div 
-          className="fixed inset-0 bg-black/40 z-20 md:hidden backdrop-blur-sm transition-opacity"
+          className="fixed inset-0 bg-black/60 z-20 md:hidden backdrop-blur-sm transition-opacity"
           onClick={() => setLeftOpen(false)}
         />
       )}
@@ -127,7 +127,7 @@ export default function App() {
       {/* Mobile backdrop for right sidebar */}
       {rightOpen && (
         <div 
-          className="fixed inset-0 bg-black/40 z-20 md:hidden backdrop-blur-sm transition-opacity"
+          className="fixed inset-0 bg-black/60 z-20 md:hidden backdrop-blur-sm transition-opacity"
           onClick={() => setRightOpen(false)}
         />
       )}

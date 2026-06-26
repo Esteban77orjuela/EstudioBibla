@@ -21,8 +21,7 @@
 @layer base {
 
   :root,
-  .theme-light,
-  .theme-sepia {
+  .theme-light {
     --bg-color: #FDFCFB;
     --fg-color: #2D2926;
     --panel-bg: #FAF9F7;
@@ -35,16 +34,29 @@
     --accent-fg: #9A7B4F;
   }
 
+  .theme-sepia {
+    --bg-color: #F3E9D2;
+    --fg-color: #3B2F2F;
+    --panel-bg: #EBE0C5;
+    --panel-border: #D4C5A9;
+    --muted-bg: #E4D7B8;
+    --muted-fg: #8B7D6B;
+    --accent-color: #9B7E5E;
+    --hover-bg: #DDCEAC;
+    --accent-muted: #DCC9A8;
+    --accent-fg: #7A6348;
+  }
+
   .theme-dark {
-    --bg-color: #1A1A1A;
-    --fg-color: #E5E1DA;
-    --panel-bg: #222222;
-    --panel-border: #333333;
-    --muted-bg: #2A2A2A;
-    --muted-fg: #888888;
-    --accent-color: #C4A484;
-    --hover-bg: #333333;
-    --accent-muted: #332A1D;
+    --bg-color: #141414;
+    --fg-color: #D4CFC7;
+    --panel-bg: #1C1C1C;
+    --panel-border: #2A2A2A;
+    --muted-bg: #242424;
+    --muted-fg: #787878;
+    --accent-color: #B8956E;
+    --hover-bg: #2C2C2C;
+    --accent-muted: #2A2318;
     --accent-fg: #C4A484;
   }
 
@@ -349,8 +361,11 @@
 .verse-citation {
   color: #9B2226;
 }
+.theme-sepia .verse-citation {
+  color: #8B1A1A;
+}
 .theme-dark .verse-citation {
-  color: #E85D5D;
+  color: #E07373;
 }
 
 /* ─── Responsive mobile tweaks ────────────────────────────────────── */
